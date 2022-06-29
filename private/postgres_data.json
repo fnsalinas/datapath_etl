@@ -1,0 +1,11 @@
+{
+    "host": "34.135.215.100",
+    "database": "postgres",
+    "port": "5432",
+    "user": "postgres",
+    "password": "tlKqAH1Sxc[CLA]B",
+    "sslmode": "verify-ca",
+    "sslcert": "/home/FABIO/etl/private/ssl-cert.crt",
+    "sslkey": "/home/FABIO/etl/private/ssl-key.key",
+    "sslrootcert": "/home/FABIO/etl/private/ca-cert.crt"
+}
