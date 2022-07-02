@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RUNNING FLASK ON GCE</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h2>FLASK APPLICATION RUNNING ON GCE</h4>
+                <p>Conventionally, Flask looks for view files in a folder with specific name. For the same reason we need to create a folder
+                    with the `templates` name and add our view files. In the `templates` folder, create a new file and name it `home.html`.
+                    This file contains the code snippets rendered on the homepage of our application.
+                </p>
+                <p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>API</th>
+                                <th>Parameter</th>
+                                <th>type</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                                <th>url</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>query_per_client_name</td>
+                                <td>client_name</td>
+                                <td>String</td>
+                                <td>The name of the client.</td>
+                                <td>{"client_name": <span class="text-danger">"Christian Doyle"</span>}</td>
+                                <td>
+                                    <a href="query_per_client_name" target="_blank">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-cloud"></span>
+                                            URL
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>query_per_client_name_and_date</td>
+                                <td>client_name</td>
+                                <td>String</td>
+                                <td>The name of the client.</td>
+                                <td>{"client_name": <span class="text-danger">"Christian Doyle"</span>}</td>
+                                <td>
+                                    <a href="query_per_client_name_and_date" target="_blank">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-cloud"></span>
+                                            URL
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>query_per_client_name_and_date</td>
+                                <td>start_date</td>
+                                <td>String</td>
+                                <td>Date in format yyyy-mm-dd.</td>
+                                <td>{"start_date": <span class="text-danger">"2022-01-01"</span>}</td>
+                                <td>
+                                    <a href="query_per_client_name_and_date" target="_blank">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-cloud"></span>
+                                            URL
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>query_per_client_name_and_date</td>
+                                <td>end_date</td>
+                                <td>String</td>
+                                <td>Date in format yyyy-mm-dd.</td>
+                                <td>{"end_date": <span class="text-danger">"2022-01-31"</span>}</td>
+                                <td>
+                                    <a href="query_per_client_name_and_date" target="_blank">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-cloud"></span>
+                                            URL
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>run_etl</td>
+                                <td>processes</td>
+                                <td>List</td>
+                                <td>List of ETL processes to run, the options are: run_insert_clients_resume or run_recreate_date_department_category_product_resume.</td>
+                                <td>{
+                                    "processes": <span class="text-danger">[
+                                        "run_insert_clients_resume",
+                                        "run_recreate_date_department_category_product_resume"
+                                        ]
+                                        }</span>}</td>
+                                <td>
+                                    <a href="run_etl" target="_blank">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-cloud"></span>
+                                            URL
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </body>
+</html>

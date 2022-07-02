@@ -3,7 +3,7 @@ from pkgutil import get_data
 from typing import List, Dict, Any, Tuple
 from common.files_reader import read_json
 from connection.connection import Database
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from sql.sql_reader import getSQLDict
 from etl_exec.postgres_execution import (
     read_data,
@@ -16,7 +16,8 @@ app.config['JSON_SORT_KEYS'] = False
 
 @app.route('/')
 def index():
-    return "Hola mundo"
+    # return "Hola mundo"
+    return render_template('home.html')
 
 @app.route('/query_per_client_name', methods = ["GET"])
 def query_per_client_name():
