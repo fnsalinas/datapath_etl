@@ -5,7 +5,11 @@ from common.files_reader import read_json
 from connection.connection import Database
 from flask import Flask, request, jsonify
 from sql.sql_reader import getSQLDict
-from etl_exec.postgres_execution import read_data
+from etl_exec.postgres_execution import (
+    read_data,
+    run_insert_clients_resume,
+    run_recreate_date_department_category_product_resume
+    )
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -39,6 +43,25 @@ def query_per_client_name_and_date():
             return str(e)
     
     return jsonify(data)
+
+@app.route('/run_etl', methods = ["GET"])
+def etl_process():
+    rows_affected: List[Dict[str, str]] = []
+    if request.method == "GET":
+        input_data: Dict[str, str] = json.loads(request.get_data().decode())
+        functions: Dict[str, Any] = {
+            "run_insert_clients_resume": run_insert_clients_resume,
+            "run_recreate_date_department_category_product_resume": run_recreate_date_department_category_product_resume
+            }
+        try:
+            if input_data.get("processes"):
+                for process in input_data.get("processes"):
+                    rows_affected.append({process: functions[process](False)})
+            
+        except Exception as e:
+            return str(e)
+    
+    return jsonify(rows_affected)
 
 if __name__ == "__main__":
     app.debug = True

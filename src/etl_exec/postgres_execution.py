@@ -25,6 +25,23 @@ def run_insert_clients_resume(debug: bool = False) -> str:
     print(rows_affected)
     return rows_affected
 
+def run_recreate_date_department_category_product_resume(debug: bool = False) -> str:
+    """
+    Executes the recreate_date_department_category_product_resume.sql script.
+    Returns:
+        A string with the number of rows affected.
+    """
+    sql_dict: Dict[str, str] = getSQLDict("/home/FABIO/etl/src/sql/etls.sql")
+    if debug: print(f"sql_dict: {sql_dict}\n\n")
+    connection_data: Dict[str, Any] = read_json("/home/FABIO/etl/private/postgres_data.json")
+    if debug: print(f"connection_data: {connection_data}\n\n")
+    db = Database(**connection_data)
+    sql: str = sql_dict.get("RECREATE_DATE_DEPARTMENT_CATEGORY_PRODUCT_RESUME")
+    if debug: print(f"sql: {sql}\n\n")
+    rows_affected = db.insert(sql)
+    print(rows_affected)
+    return rows_affected
+
 def read_data(sql_name: str, sql_vars: Dict[str, str], debug: bool = False) -> List[Dict[str, Any]]:
     """
     Executes the sql_name script.
