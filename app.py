@@ -26,7 +26,19 @@ def query_per_client_name():
         except Exception as e:
             return str(e)
     
-    return jsonify({"Data": data})
+    return jsonify(data)
+
+@app.route('/query_per_client_name_and_date', methods = ["GET"])
+def query_per_client_name_and_date():
+    input_data: Dict[str, str] = json.loads(request.get_data().decode())
+    if request.method == "GET":
+        try:
+            data: Dict[str, str] = read_data("CLIENTS_RESUME_QUERY_PER_NAME_DATE", input_data, False)
+            
+        except Exception as e:
+            return str(e)
+    
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.debug = True

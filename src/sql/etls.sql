@@ -37,7 +37,7 @@ FROM public.etl_clients_resume
 WHERE nombre_cliente = '{client_name}';
 
 -- CLIENTS_RESUME_QUERY_PER_NAME_DATE
-SELECT *
+SELECT order_date, cantidad_productos_vendidos, montos_vendidos
 FROM public.etl_clients_resume
 WHERE nombre_cliente = '{client_name}' AND order_date BETWEEN '{start_date}' AND '{end_date}';
 
