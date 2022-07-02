@@ -26,7 +26,7 @@ def query_per_client_name():
         except Exception as e:
             return str(e)
     
-    return jsonify({"Data": data},)
+    return jsonify({"Data": data})
 
 if __name__ == "__main__":
     app.debug = True
