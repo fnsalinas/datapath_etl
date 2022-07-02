@@ -10,6 +10,7 @@ python_version = "3.9"
 
 [packages]
 psycopg2-binary = "*"
+flask = "*"
 
 [packages.e1839a8]
 path = "."
